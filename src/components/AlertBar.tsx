@@ -4,6 +4,7 @@ import { Interpreter } from "xstate";
 import { SnackbarContext, SnackbarSchema, SnackbarEvents } from "../machines/snackbarMachine";
 import { useService } from "@xstate/react";
 import Alert from "@material-ui/lab/Alert";
+import Charts from "./analytics/Charts"
 
 interface Props {
   snackbarService: Interpreter<SnackbarContext, SnackbarSchema, SnackbarEvents, any>;
