@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router";
 import { TransactionDateRangePayload, TransactionAmountRangePayload } from "../models";
 import TransactionListFilters from "../components/TransactionListFilters";
 import TransactionContactsList from "../components/TransactionContactsList";
+import Analytics from "../components/Analytics";
 import { transactionFiltersMachine } from "../machines/transactionFiltersMachine";
 import { getDateQueryFields, getAmountQueryFields } from "../utils/transactionUtils";
 import TransactionPersonalList from "../components/TransactionPersonalList";
@@ -50,6 +51,13 @@ const TransactionsContainer: React.FC = () => {
           dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
           amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
         />
+      </Route>
+      <Route exact path="/analytics">
+      <Analytics 
+        filterComponent={Filters}
+        dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
+        amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
+      />
       </Route>
     </Switch>
   );
