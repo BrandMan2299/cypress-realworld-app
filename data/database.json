@@ -74,6 +74,17 @@
       "balance": 75369,
       "createdAt": "2020-02-11T21:26:46.510Z",
       "modifiedAt": "2020-05-21T15:15:33.944Z"
+    },
+    {
+      "id": "tpcLOjjxB",
+      "uuid": "312db07d-88b5-4933-b3d4-713c88971500",
+      "firstName": "Gal",
+      "lastName": "Moshkovitz",
+      "username": "Gmoshko",
+      "password": "$2a$10$jS7baW.O7jS6S1LgdadDauhAj0VhdmmY/tm2Mt7tYlPIXAUjopG9G",
+      "balance": 0,
+      "createdAt": "2020-10-21T17:08:36.442Z",
+      "modifiedAt": "2020-10-21T17:08:36.442Z"
     }
   ],
   "contacts": [
@@ -253,6 +264,17 @@
       "isDeleted": false,
       "createdAt": "2019-09-30T14:20:07.043Z",
       "modifiedAt": "2020-05-21T22:40:28.910Z"
+    },
+    {
+      "id": "PgvmcFZ8N",
+      "uuid": "925567be-f597-40c8-8f5c-e2d1b273c256",
+      "userId": "tpcLOjjxB",
+      "bankName": "aaaaaaa",
+      "accountNumber": "121212121",
+      "routingNumber": "121212121",
+      "isDeleted": false,
+      "createdAt": "2020-10-21T17:08:48.516Z",
+      "modifiedAt": "2020-10-21T17:08:48.516Z"
     }
   ],
   "transactions": [
