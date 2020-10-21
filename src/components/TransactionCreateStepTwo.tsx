@@ -144,6 +144,7 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
                   />
                 )}
               </Field>
+<<<<<<< HEAD
               <Field name="reasonOfPayment">
                 {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
                   <Select
@@ -164,6 +165,10 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
                   <option value={'Sex'}>Sex</option>
         </Select>
                 )}
+=======
+              <Field>
+                <Select></Select>
+>>>>>>> 2c3a387... failed select
               </Field>
               <Field name="description">
                 {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
