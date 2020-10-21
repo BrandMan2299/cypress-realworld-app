@@ -139,8 +139,7 @@ router.post(
   ensureAuthenticated,
   validateMiddleware(isTransactionPayloadValidator),
   (req, res) => {
-    console.log("you r here", req.body);
-
+    
     const transactionPayload = req.body;
     const transactionType = transactionPayload.transactionType;
 

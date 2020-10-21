@@ -144,7 +144,7 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
                   />
                 )}
               </Field>
-              <Field name="reason">
+              <Field name="reasonOfPayment">
                 {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
                   <Select
                     variant="outlined"
@@ -159,9 +159,9 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
                     
                     {...field}
                   ><option aria-label="None" value="" />
-                  <option value={10}>Ten</option>
-                  <option value={20}>Twenty</option>
-                  <option value={30}>Thirty</option>
+                  <option value={'Food'}>Food</option>
+                  <option value={'Play'}>Play</option>
+                  <option value={'Sex'}>Sex</option>
         </Select>
                 )}
               </Field>
