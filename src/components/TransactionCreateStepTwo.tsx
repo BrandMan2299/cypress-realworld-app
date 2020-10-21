@@ -4,8 +4,9 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { Formik, Form, Field, FieldProps } from "formik";
 import { string, object, number } from "yup";
-import { Paper, Typography, Button, Grid, Container, Avatar, Box } from "@material-ui/core";
+import { Paper, Typography, Button, Grid, Container, Avatar, Box, Select } from "@material-ui/core";
 import { User } from "../models";
+
 
 const validationSchema = object({
   amount: number().required("Please enter a valid amount"),
@@ -141,6 +142,27 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
                     }}
                     {...field}
                   />
+                )}
+              </Field>
+              <Field name="reasonOfPayment">
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
+                  <Select
+                    variant="outlined"
+                    margin="dense"
+                    fullWidth
+                    required
+                    id={"transaction-create-description-input"}
+                    type="text"
+                    placeholder="Add a note"
+                    data-test={"transaction-create-description-input"}
+                    error={(touched || value !== initialValue) && Boolean(error)}
+                    
+                    {...field}
+                  ><option aria-label="None" value="" />
+                  <option value={'Food'}>Food</option>
+                  <option value={'Play'}>Play</option>
+                  <option value={'Sex'}>Sex</option>
+        </Select>
                 )}
               </Field>
               <Field name="description">

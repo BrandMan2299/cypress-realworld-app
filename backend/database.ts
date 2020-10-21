@@ -536,6 +536,7 @@ export const createTransaction = (
     description: transactionDetails.description,
     receiverId: transactionDetails.receiverId,
     senderId: userId,
+    reasonOfPayment:transactionDetails.reasonOfPayment,
     privacyLevel: transactionDetails.privacyLevel || sender.defaultPrivacyLevel,
     status: TransactionStatus.pending,
     requestStatus: transactionType === "request" ? TransactionRequestStatus.pending : undefined,

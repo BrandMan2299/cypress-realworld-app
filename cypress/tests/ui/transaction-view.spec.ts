@@ -13,6 +13,7 @@ describe("Transaction View", function () {
 
     cy.server();
     cy.route("GET", "/transactions").as("personalTransactions");
+    cy.route("GET", "/transactions").as("analyticsTransactions");
     cy.route("GET", "/transactions/public").as("publicTransactions");
     cy.route("GET", "/transactions/*").as("getTransaction");
     cy.route("PATCH", "/transactions/*").as("updateTransaction");
