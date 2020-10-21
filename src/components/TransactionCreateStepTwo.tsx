@@ -4,9 +4,8 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { Formik, Form, Field, FieldProps } from "formik";
 import { string, object, number } from "yup";
-import { Paper, Typography, Button, Grid, Container, Avatar, Box, Select } from "@material-ui/core";
+import { Paper, Typography, Button, Grid, Container, Avatar, Box } from "@material-ui/core";
 import { User } from "../models";
-
 
 const validationSchema = object({
   amount: number().required("Please enter a valid amount"),
@@ -143,9 +142,6 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
                     {...field}
                   />
                 )}
-              </Field>
-              <Field>
-                <Select></Select>
               </Field>
               <Field name="description">
                 {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
