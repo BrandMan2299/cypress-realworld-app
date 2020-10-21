@@ -1,12 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { httpClient } from "utils/asyncUtils";
 
-function Analystics(){
+interface Props{}
 
-    return (
-        <div>
-            
-        </div>
+type Data={
+
+}
+
+const Analystics:React.FC<Props>=({})=>{
+    const [data,setData]=useState<Data>('string')
+    useEffect(()=>{
+        httpClient('').then(res=>setData(res))
+    })
+    return(
+        <div></div>
     )
 }
 
