@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { httpClient } from "utils/asyncUtils";
 
@@ -14,6 +15,17 @@ const Analystics:React.FC<Props>=({})=>{
     })
     return(
         <div></div>
+=======
+import React, { useEffect } from "react";
+import { httpClient } from "utils/asyncUtils";
+
+function Analystics(){
+
+    return (
+        <div>
+            
+        </div>
+>>>>>>> d9dbf1e... Create Analystics.tsx
     )
 }
 
