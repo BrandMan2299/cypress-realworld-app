@@ -165,6 +165,7 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
         </Select>
                 )}
               </Field>
+
               <Field name="description">
                 {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
                   <TextField
