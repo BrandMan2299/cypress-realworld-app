@@ -10,10 +10,15 @@ export const analyticsTransactionsMachine = dataMachine("analyticsTransactions")
         params: !isEmpty(payload) ? payload : undefined,
       });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       console.log("Resp Data")
       console.log(JSON.stringify(resp.data))
 >>>>>>> 093b9d8... teamwork ;)
+=======
+      console.log("Resp Data")
+      console.log(JSON.stringify(resp.data))
+>>>>>>> Gilad
       return resp.data;
     },
   },
