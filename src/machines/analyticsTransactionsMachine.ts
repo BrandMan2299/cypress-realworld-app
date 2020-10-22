@@ -9,6 +9,11 @@ export const analyticsTransactionsMachine = dataMachine("analyticsTransactions")
       const resp = await httpClient.get(`http://localhost:3001/transactions`, {
         params: !isEmpty(payload) ? payload : undefined,
       });
+<<<<<<< HEAD
+=======
+      console.log("Resp Data")
+      console.log(JSON.stringify(resp.data))
+>>>>>>> Gilad
       return resp.data;
     },
   },
