@@ -132,6 +132,47 @@ router.get(
     });
   }
 );
+//GET /transactions/public - auth-required
+router.get(
+  "/analytics",
+  ensureAuthenticated,
+  (req, res) => {
+    const isFirstPage = req.query.page === 1;
+
+    /* istanbul ignore next */
+    let transactions = !isEmpty(req.query)
+      ? getPublicTransactionsByQuery(req.user?.id!, req.query)
+      : /* istanbul ignore next */
+      getPublicTransactionsDefaultSort(req.user?.id!);
+
+    const { contactsTransactions, publicTransactions } = transactions;
+
+    let publicTransactionsWithContacts;
+
+    if (isFirstPage) {
+      const firstFiveContacts = slice(0, 5, contactsTransactions);
+
+      publicTransactionsWithContacts = concat(firstFiveContacts, publicTransactions);
+    }
+
+    const { totalPages, data: paginatedItems } = getPaginatedItems(
+      req.query.page,
+      req.query.limit,
+      isFirstPage ? publicTransactionsWithContacts : publicTransactions
+    );
+
+    res.status(200);
+    res.json({
+      pageData: {
+        page: res.locals.paginate.page,
+        limit: res.locals.paginate.limit,
+        hasNextPages: res.locals.paginate.hasNextPages(totalPages),
+        totalPages,
+      },
+      results: paginatedItems,
+    });
+  }
+);
 
 //POST /transactions - scoped-user
 router.post(

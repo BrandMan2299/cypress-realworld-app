@@ -12,6 +12,7 @@ export default function TransactionNavTabs() {
     "/public": 0,
     "/contacts": 1,
     "/personal": 2,
+    "/analytics": 3,
   };
 
   // Set selected tab based on url
