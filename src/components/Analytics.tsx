@@ -12,6 +12,7 @@ import TransactionList from "./TransactionList";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { analyticsTransactionsMachine } from "../machines/analyticsTransactionsMachine";
+import ChartPie from "./Charts/PieChart";
 
 export interface AnalyticsProps {
   filterComponent: ReactNode;
@@ -44,7 +45,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
     <>
     <Paper elevation={2}>
     {filterComponent}
-      
+      <ChartPie size={300} data={[{label:'food',number:300},{label:'food',number:300},{label:'food',number:300}]}/>
     </Paper>
     </>
   );
