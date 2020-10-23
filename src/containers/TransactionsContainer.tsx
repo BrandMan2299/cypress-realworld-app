@@ -66,9 +66,9 @@ const TransactionsContainer: React.FC = () => {
       </Route>
       <Route exact path="/analytics">
       <Analytics 
-        filterComponent={Filters}
-        dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
-        amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
+        // filterComponent={Filters}
+        // dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
+        // amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
       />
       </Route>
     </Switch>
