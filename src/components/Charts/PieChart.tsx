@@ -48,13 +48,21 @@ const ChartPie:React.FC<PieProps>=({size,data})=>{
         }
     }
     function isPointInSector(point:Point,sector:Sector):boolean{
-        let pointAngleWithY:number=Math.asin(point.x)
-        let pointDistFromCenter:number=Math.sqrt(Math.abs(point.x-sector.center.x)+(point.y-sector.center.y))
+        
+        let pointDistFromCenter:number=Math.sqrt((point.x-sector.center.x)**2+(point.y-sector.center.y)**2)
+        let extra=0
+        if (point.x<0) extra+=Math.PI
+        if (point.y<0) extra+=Math.PI*2
+        let pointAngleWithY:number=Math.atan((point.x-size/2)/(point.y-size/2)+extra)
+        console.log(pointAngleWithY)
         return pointDistFromCenter<=sector.radius&&sector.startAngle<pointAngleWithY&&pointAngleWithY<sector.endAngle
     }
     function checkSector(e:React.MouseEvent):void{
+        
         let board=canvas.current as HTMLCanvasElement
-        let mouseLocationOnCanvas={x:e.clientX-board.offsetLeft,y:e.clientY-board.offsetTop}
+        
+        let mouseLocationOnCanvas={x:e.clientX-board.offsetLeft,y:size-(e.clientY-board.offsetTop)}
+
         for (let i=0;i<sectors.length;i++){
             if (isPointInSector(mouseLocationOnCanvas,sectors[i][1])){
                 console.log(sectors[i][0])
