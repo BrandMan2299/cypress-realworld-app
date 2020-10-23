@@ -15,15 +15,15 @@ import { analyticsTransactionsMachine } from "../machines/analyticsTransactionsM
 import ChartPie from "./Charts/PieChart";
 
 export interface AnalyticsProps {
-  filterComponent: ReactNode;
-  dateRangeFilters: TransactionDateRangePayload;
-  amountRangeFilters: TransactionAmountRangePayload;
+  // filterComponent: ReactNode;
+  // dateRangeFilters: TransactionDateRangePayload;
+  // amountRangeFilters: TransactionAmountRangePayload;
 }
 
 const Analytics: React.FC<AnalyticsProps> = ({
-  filterComponent,
-  dateRangeFilters,
-  amountRangeFilters,
+  // filterComponent,
+  // dateRangeFilters,
+  // amountRangeFilters,
 }) => {
   const [current, send, analyticsTransactionService] = useMachine(analyticsTransactionsMachine);
   const { pageData, results } = current.context;
@@ -34,17 +34,17 @@ const Analytics: React.FC<AnalyticsProps> = ({
     window.analyticsTransactionService = analyticsTransactionService;
   }
 
-  useEffect(() => {
-    send("FETCH", { ...dateRangeFilters, ...amountRangeFilters });
-  }, [send, dateRangeFilters, amountRangeFilters]);
+  // useEffect(() => {
+  //   send("FETCH", { ...dateRangeFilters, ...amountRangeFilters });
+  // }, [send, dateRangeFilters, amountRangeFilters]);
 
-  const loadNextPage = (page: number) =>
-    send("FETCH", { page, ...dateRangeFilters, ...amountRangeFilters });
+  // const loadNextPage = (page: number) =>
+  //   send("FETCH", { page, ...dateRangeFilters, ...amountRangeFilters });
 
   return (
     <>
     <Paper elevation={2}>
-    {filterComponent}
+    {/* {filterComponent} */}
       <ChartPie size={300} data={[{label:'food',number:300},{label:'food',number:300},{label:'food',number:300}]}/>
     </Paper>
     </>
