@@ -1,26 +1,9 @@
 ///<reference path="types.ts" />
 
 import express from "express";
-import { remove, isEmpty, slice, concat } from "lodash/fp";
-import {
-    getTransactionsForUserContacts,
-    createTransaction,
-    updateTransactionById,
-    getPublicTransactionsDefaultSort,
-    getTransactionByIdForApi,
-    getTransactionsForUserForApi,
-    getPublicTransactionsByQuery,
-} from "./database";
+import { getTransactionsForUserForApi } from "./database";
 import { ensureAuthenticated, validateMiddleware } from "./helpers";
-import {
-    sanitizeTransactionStatus,
-    sanitizeRequestStatus,
-    isTransactionQSValidator,
-    isTransactionPayloadValidator,
-    shortIdValidation,
-    isTransactionPatchValidator,
-    isTransactionPublicQSValidator,
-} from "./validators";
+import { sanitizeTransactionStatus, sanitizeRequestStatus, isTransactionQSValidator, } from "./validators";
 import { getPaginatedItems } from "../src/utils/transactionUtils";
 const router = express.Router();
 
@@ -34,7 +17,7 @@ router.get(
     ]),
     (req, res) => {
         /* istanbul ignore next */
-        // const transactions = getTransactionsForUserForApi(req.user?.id!, req.query);
+        const transactions = getTransactionsForUserForApi(req.user?.id!, req.query);
 
         // const { totalPages, data: paginatedItems } = getPaginatedItems(
         //     req.query.page,
@@ -52,8 +35,9 @@ router.get(
         //     },
         //     results: paginatedItems,
         // });
-        console.log(req);
-        res.json({ messege: "bob" })
+
+        console.log(req.query);
+        res.json(transactions)
     }
 );
 
