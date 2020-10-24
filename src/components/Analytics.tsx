@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+import React, { useEffect } from "react";
+import { httpClient } from "utils/asyncUtils";
+
+function Analystics(){
+
+    return (
+        <div>
+            
+        </div>
+    )
+}
+
+export default Analystics;
+=======
+=======
+>>>>>>> Gilad
 import React, { useEffect, useState, ReactNode } from "react";
 import { useMachine } from "@xstate/react";
 import {
@@ -53,3 +71,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
 export default Analytics;
 
 
+<<<<<<< HEAD
+>>>>>>> 093b9d8... teamwork ;)
+=======
+>>>>>>> Gilad
