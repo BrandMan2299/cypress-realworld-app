@@ -41,6 +41,12 @@ describe("Transaction Feed", function () {
       routeAlias: "personalTransactions",
       service: "personalTransactionService",
     },
+    analytics: {
+      tab: "analytics-tab",
+      tabLabel: "analytics",
+      routeAlias: "analyticsTransactions",
+      service: "analyticsTransactionService",
+    },
   };
 
   beforeEach(function () {

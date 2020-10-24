@@ -6,6 +6,8 @@ declare namespace Cypress {
   import { publicTransactionService } from "../src/machines/publicTransactionsMachine";
   import { contactsTransactionService } from "../src/machines/contactsTransactionsMachine";
   import { personalTransactionService } from "../src/machines/personalTransactionsMachine";
+  import { analyticsTransactionService } from "../src/machines/analyticsTransactionsMachine";
+
   import {
     User,
     BankAccount,
@@ -22,6 +24,7 @@ declare namespace Cypress {
     publicTransactionService: typeof publicTransactionService;
     contactTransactionService: typeof contactsTransactionService;
     personalTransactionService: typeof personalTransactionService;
+    analyticsTransactionService: typeof analyticsTransactionService;
   }
 
   type dbQueryArg = {

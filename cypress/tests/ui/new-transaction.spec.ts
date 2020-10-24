@@ -21,6 +21,7 @@ describe("New Transaction", function () {
     cy.route("GET", "/notifications").as("notifications");
     cy.route("GET", "/transactions/public").as("publicTransactions");
     cy.route("GET", "/transactions").as("personalTransactions");
+    cy.route("GET", "/transactions").as("analyticsTransactions");
     cy.route("GET", "/users/search*").as("usersSearch");
     cy.route("PATCH", "/transactions/*").as("updateTransaction");
 

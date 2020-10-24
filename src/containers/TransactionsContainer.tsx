@@ -4,10 +4,13 @@ import { Switch, Route } from "react-router";
 import { TransactionDateRangePayload, TransactionAmountRangePayload } from "../models";
 import TransactionListFilters from "../components/TransactionListFilters";
 import TransactionContactsList from "../components/TransactionContactsList";
+import Analytics from "../components/Analytics";
 import { transactionFiltersMachine } from "../machines/transactionFiltersMachine";
 import { getDateQueryFields, getAmountQueryFields } from "../utils/transactionUtils";
 import TransactionPersonalList from "../components/TransactionPersonalList";
+import TransactionAnalyticsList from "../components/TransactionAnalyticsList";
 import TransactionPublicList from "../components/TransactionPublicList";
+
 
 const TransactionsContainer: React.FC = () => {
   const [currentFilters, sendFilterEvent] = useMachine(transactionFiltersMachine);
@@ -36,6 +39,14 @@ const TransactionsContainer: React.FC = () => {
           dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
           amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
         />
+      {/* </Route>
+      <Route exact path="/analytics">
+        <TransactionContactsList
+          filterComponent={Filters}
+          dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
+          amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
+        />
+      </Route> */}
       </Route>
       <Route exact path="/personal">
         <TransactionPersonalList
@@ -50,6 +61,13 @@ const TransactionsContainer: React.FC = () => {
           dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
           amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
         />
+      </Route>
+      <Route exact path="/analytics">
+      <Analytics 
+        filterComponent={Filters}
+        dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
+        amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
+      />
       </Route>
     </Switch>
   );

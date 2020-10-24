@@ -43,7 +43,7 @@ const PrivateRoutesContainer: React.FC<Props> = ({
         bankAccountsService={bankAccountsService}
       />
       <Switch>
-        <PrivateRoute isLoggedIn={isLoggedIn} exact path={"/(public|contacts|personal)?"}>
+        <PrivateRoute isLoggedIn={isLoggedIn} exact path={"/(public|contacts|personal|analytics)?"}>
           <TransactionsContainer />
         </PrivateRoute>
         <PrivateRoute isLoggedIn={isLoggedIn} exact path="/user/settings">
