@@ -9,12 +9,19 @@ import {
 import { httpClient } from "utils/asyncUtils";
 import TransactionList from "./TransactionList";
 import { makeStyles } from "@material-ui/core/styles";
+<<<<<<< HEAD
 import { Divider } from "@material-ui/core";
+=======
+import {Divider} from "@material-ui/core";
+>>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
 import Paper from "@material-ui/core/Paper";
 import { analyticsTransactionsMachine } from "../machines/analyticsTransactionsMachine";
 import ChartPie from "./Charts/PieChart";
 import styled from 'styled-components'
+<<<<<<< HEAD
 import { Transaction } from '../models/transaction'
+=======
+>>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
 
 const Paragraph = styled.div`
  display: flex;
@@ -48,9 +55,13 @@ const Analytics: React.FC<AnalyticsProps> = ({
   amountRangeFilters,
 }) => {
   const [current, send, analyticsTransactionService] = useMachine(analyticsTransactionsMachine);
+<<<<<<< HEAD
   console.log(current);
 
   const { results } = current.context; //results: the data u get from the backend
+=======
+  const { pageData, results } = current.context;
+>>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
 
   // @ts-ignore
   if (window.Cypress) {
@@ -65,6 +76,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
   const loadNextPage = (page: number) =>
     send("FETCH", { page, ...dateRangeFilters, ...amountRangeFilters });
 
+<<<<<<< HEAD
   const data = [{ label: 'food', number: 300 }, { label: 'fitness', number: 300 }, { label: 'sex', number: 300 }];
 
   const PieParagraph = (): JSX.Element => {
@@ -90,6 +102,33 @@ const Analytics: React.FC<AnalyticsProps> = ({
           <ChartPie size={300} data={data} />
         </ParagraphAndChart>
       </Paper>
+=======
+  const data=[{label:'food',number:300},{label:'fitness',number:300},{label:'sex',number:300}];
+  
+  const PieParagraph =():JSX.Element=>{
+      return (
+       <Paragraph>
+        { 
+            data.map(obj=><><span>You spent {obj.number} on {obj.label} </span></>)
+        }
+      </Paragraph>
+)
+    }
+  return (
+    <>
+    <Paper elevation={2}>
+    {filterComponent}
+      <ParagraphAndChart>
+        {PieParagraph()}
+         <ChartPie size={300} data={data}/>
+      </ParagraphAndChart>
+      <Divider/>
+      <ParagraphAndChart>
+        {PieParagraph()}
+         <ChartPie size={300} data={data}/>
+      </ParagraphAndChart>
+    </Paper>
+>>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
     </>
   );
 };

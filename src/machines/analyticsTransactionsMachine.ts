@@ -6,11 +6,19 @@ export const analyticsTransactionsMachine = dataMachine("analyticsTransactions")
   services: {
     fetchData: async (ctx, event: any) => {
       const payload = omit("type", event);
+<<<<<<< HEAD
       const resp = await httpClient.get(`http://localhost:3001/analytics`, {
         params: !isEmpty(payload) ? payload : undefined,
       });
       console.log("Resp Data")
       console.log(resp.data)
+=======
+      const resp = await httpClient.get(`http://localhost:3001/transactions`, {
+        params: !isEmpty(payload) ? payload : undefined,
+      });
+      console.log("Resp Data")
+      console.log(JSON.stringify(resp.data))
+>>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
       return resp.data;
     },
   },
