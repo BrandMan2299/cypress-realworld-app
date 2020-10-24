@@ -10,7 +10,6 @@ import { getDateQueryFields, getAmountQueryFields } from "../utils/transactionUt
 import TransactionPersonalList from "../components/TransactionPersonalList";
 import TransactionAnalyticsList from "../components/TransactionAnalyticsList";
 import TransactionPublicList from "../components/TransactionPublicList";
-import Analytics from "../components/Analytics";
 
 const TransactionsContainer: React.FC = () => {
   const [currentFilters, sendFilterEvent] = useMachine(transactionFiltersMachine);
@@ -49,7 +48,7 @@ const TransactionsContainer: React.FC = () => {
       </Route> */}
       </Route>
       <Route exact path="/analytics">
-        <Analytics />
+   
       </Route>
       <Route exact path="/personal">
         <TransactionPersonalList
@@ -67,9 +66,9 @@ const TransactionsContainer: React.FC = () => {
       </Route>
       <Route exact path="/analytics">
       <Analytics 
-        filterComponent={Filters}
-        dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
-        amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
+        // filterComponent={Filters}
+        // dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
+        // amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
       />
       </Route>
     </Switch>

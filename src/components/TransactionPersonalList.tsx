@@ -8,6 +8,7 @@ import {
 } from "../models";
 import TransactionList from "./TransactionList";
 import { personalTransactionsMachine } from "../machines/personalTransactionsMachine";
+import { analyticsMachine } from "../machines/analyticsMachine";
 
 export interface TransactionPersonalListProps {
   filterComponent: ReactNode;
