@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface PieData {
   label: string;
@@ -27,9 +27,21 @@ enum Colors {
   yellow,
 }
 
+interface context{
+  left:number,
+  top:number,
+  text:string
+}
+
+type sectors=Array<[string, Sector, string]>
+
 const ChartPie: React.FC<PieProps> = ({ size, data }) => {
   const canvas: React.RefObject<HTMLCanvasElement> = useRef(null);
-  const sectors: Array<[string, Sector]> = [];
+  // const sectors: Array<[string, Sector, string]> = [];
+  const [sectors,setSectors]=useState<sectors>([])
+  const [tags,setTags]=useState([<div></div>,])
+  const [showContext,setShowContext]=useState<boolean>(false)
+  const [context,setContext]=useState<context>({top:0,left:0,text:""})
   function draw(
     el: HTMLCanvasElement,
     startAngle: number,
@@ -60,15 +72,16 @@ const ChartPie: React.FC<PieProps> = ({ size, data }) => {
     }).number;
     while (index < data.length) {
       let prec = (data[index].number / total) * 100;
+      let color=Colors[
+        index %
+          Object.keys(Colors).filter((key) => Number.isNaN(Number(key)))
+            .length
+      ]
       let endAngle = draw(
         el,
         startAngle,
         prec,
-        Colors[
-          index %
-            Object.keys(Colors).filter((key) => Number.isNaN(Number(key)))
-              .length
-        ]
+        color
       );
       sectors.push([
         data[index].label,
@@ -78,10 +91,12 @@ const ChartPie: React.FC<PieProps> = ({ size, data }) => {
           startAngle,
           endAngle,
         },
+        color
       ]);
       startAngle = endAngle;
       index++;
     }
+    setTags(sectors.map((item,i)=><div key={i}><div style={{background:item[2], borderRadius:"50%", height:"12px",width:"12px", display:"inline-block"}}/>{item[0]}</div>))
   }
   function isPointInSector(point: Point, sector: Sector): boolean {
     let pointDistFromCenter: number = Math.sqrt(
@@ -106,7 +121,6 @@ const ChartPie: React.FC<PieProps> = ({ size, data }) => {
   }
   function checkSector(e: React.MouseEvent): void {
     let board = canvas.current as HTMLCanvasElement;
-
     let mouseLocationOnCanvas = {
       x: e.clientX - board.offsetLeft,
       y: size - (e.clientY - board.offsetTop),
@@ -114,25 +128,36 @@ const ChartPie: React.FC<PieProps> = ({ size, data }) => {
 
     for (let i = 0; i < sectors.length; i++) {
       if (isPointInSector(mouseLocationOnCanvas, sectors[i][1])) {
-        console.log(
-          sectors[i][0],
-          data.find((obj) => obj.label === sectors[i][0])?.number
-        );
+        setShowContext(true)
+        setContext({
+          top:e.clientY,
+          left:e.clientX,
+          text:`${sectors[i][0]}:${data.find((obj) => obj.label === sectors[i][0])?.number}`
+        })
+        
         return;
       }
+      setShowContext(false)
     }
   }
   useEffect(() => {
     drawPie(canvas.current as HTMLCanvasElement, data);
   }, []);
   return (
-    <canvas
-      id="canvas"
-      width={String(size)}
-      height={String(size)}
-      ref={canvas}
-      onMouseMove={checkSector}
-    ></canvas>
+    <div style={{width:`${size}px`}} onMouseOut={()=>setShowContext(false)}>
+      <canvas
+        id="canvas"
+        width={String(size)}
+        height={String(size)}
+        ref={canvas}
+        onMouseMove={checkSector}
+        
+      ></canvas>
+      <div style={{display:"flex", justifyContent:"space-evenly", flexWrap:"wrap"}}>
+        {tags}
+      </div>
+  <div style={{background:"black", color:"white", position:"absolute", cursor:"default", left:context.left+10, top:context.top+10}} hidden={!showContext}>{context.text}</div>
+    </div>
   );
 };
 
