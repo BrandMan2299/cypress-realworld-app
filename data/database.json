@@ -11,7 +11,7 @@
       "phoneNumber": "625-316-9882",
       "avatar": "https://avatars.dicebear.com/api/human/t45AiwidW.svg",
       "defaultPrivacyLevel": "public",
-      "balance": 168137,
+      "balance": 10168137,
       "createdAt": "2019-08-27T23:47:05.637Z",
       "modifiedAt": "2020-05-21T11:02:22.857Z"
     },
@@ -74,6 +74,17 @@
       "balance": 75369,
       "createdAt": "2020-02-11T21:26:46.510Z",
       "modifiedAt": "2020-05-21T15:15:33.944Z"
+    },
+    {
+      "id": "okbQBt2om",
+      "uuid": "59c9de79-c74b-40a7-a777-c46326ba9bbf",
+      "firstName": "bob",
+      "lastName": "bob",
+      "username": "BrandMan",
+      "password": "$2a$10$9GPvrsGRWv8yPLGawYll7OLGMC7vLHS6h13n53OkVkNsPh6oqhgWC",
+      "balance": 0,
+      "createdAt": "2020-10-24T22:37:09.262Z",
+      "modifiedAt": "2020-10-24T22:37:09.262Z"
     }
   ],
   "contacts": [
@@ -253,6 +264,17 @@
       "isDeleted": false,
       "createdAt": "2019-09-30T14:20:07.043Z",
       "modifiedAt": "2020-05-21T22:40:28.910Z"
+    },
+    {
+      "id": "q_-I_NDhG",
+      "uuid": "ba39b7f4-782a-42bd-831a-4b9e6d9d346e",
+      "userId": "okbQBt2om",
+      "bankName": "11111111",
+      "accountNumber": "111111111",
+      "routingNumber": "111111111",
+      "isDeleted": false,
+      "createdAt": "2020-10-24T22:40:06.721Z",
+      "modifiedAt": "2020-10-24T22:40:06.721Z"
     }
   ],
   "transactions": [
@@ -9855,6 +9877,18 @@
       "requestResolvedAt": "",
       "createdAt": "2019-06-27T22:24:04.794Z",
       "modifiedAt": "2020-05-21T04:58:44.494Z"
+    },
+    {
+      "id": "dURjIwkJC",
+      "uuid": "39293f9d-a7a9-452e-8057-0010de4c5b13",
+      "amount": 10000000,
+      "description": "good",
+      "receiverId": "t45AiwidW",
+      "senderId": "okbQBt2om",
+      "reasonOfPayment": "Play",
+      "status": "complete",
+      "createdAt": "2020-10-24T22:40:22.280Z",
+      "modifiedAt": "2020-10-24T22:40:22.280Z"
     }
   ],
   "likes": [
@@ -10431,6 +10465,16 @@
       "isRead": false,
       "createdAt": "2019-10-19T20:50:49.292Z",
       "modifiedAt": "2020-05-21T21:00:50.192Z"
+    },
+    {
+      "id": "GVy-m3amSn",
+      "uuid": "514bff9d-940b-4dfb-9cca-9f7bd7bc6bd0",
+      "userId": "t45AiwidW",
+      "transactionId": "dURjIwkJC",
+      "status": "received",
+      "isRead": false,
+      "createdAt": "2020-10-24T22:40:22.304Z",
+      "modifiedAt": "2020-10-24T22:40:22.304Z"
     }
   ],
   "banktransfers": [
@@ -10983,6 +11027,16 @@
       "transactionId": "jtdpSmWcsJxk",
       "createdAt": "2019-10-10T05:09:20.517Z",
       "modifiedAt": "2020-05-21T12:24:00.749Z"
+    },
+    {
+      "id": "_rDsBvxfgs",
+      "uuid": "3d03d5ba-f8f0-4159-990e-a1438e7294a0",
+      "userId": "okbQBt2om",
+      "amount": 10000000,
+      "transactionId": "dURjIwkJC",
+      "type": "withdrawal",
+      "createdAt": "2020-10-24T22:40:22.286Z",
+      "modifiedAt": "2020-10-24T22:40:22.286Z"
     }
   ]
 }

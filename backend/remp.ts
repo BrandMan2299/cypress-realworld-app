@@ -51,9 +51,25 @@ router.get(
     //     Column:galsColumnFunction(functionsData)
     // }
 
+    // const { totalPages, data: paginatedItems } = getPaginatedItems(
+    //   req.query.page,
+    //   req.query.limit,
+    //   functionsData
+    // );
+
+    // res.status(200);
+    // res.json({
+    //   pageData: {
+    //     page: res.locals.paginate.page,
+    //     limit: res.locals.paginate.limit,
+    //     hasNextPages: res.locals.paginate.hasNextPages(totalPages),
+    //     totalPages,
+    //   },
+    //   results: paginatedItems,
+    // });
 
     console.log(req.query);
-    res.json(functionsData);
+    res.json({ results: functionsData });
   }
 );
 
