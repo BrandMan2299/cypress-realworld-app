@@ -11,6 +11,7 @@ export const analyticsTransactionsMachine = dataMachine("analyticsTransactions")
       });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       console.log("Resp Data")
       console.log(JSON.stringify(resp.data))
@@ -19,6 +20,10 @@ export const analyticsTransactionsMachine = dataMachine("analyticsTransactions")
       console.log("Resp Data")
       console.log(JSON.stringify(resp.data))
 >>>>>>> Gilad
+=======
+      console.log("Resp Data")
+      console.log(JSON.stringify(resp.data))
+>>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
       return resp.data;
     },
   },
