@@ -12,7 +12,7 @@ export enum TransactionRequestStatus {
   accepted = "accepted",
   rejected = "rejected",
 }
-export type Reasons="Food"|"Sport"|"Sex"|"Other" 
+export type Reasons = "Food" | "Sport" | "Sex" | "Other"
 
 export interface Transaction {
   id: string;
