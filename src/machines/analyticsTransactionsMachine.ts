@@ -6,13 +6,11 @@ export const analyticsTransactionsMachine = dataMachine("analyticsTransactions")
   services: {
     fetchData: async (ctx, event: any) => {
       const payload = omit("type", event);
-
       const resp = await httpClient.get(`http://localhost:3001/analytics`, {
         params: !isEmpty(payload) ? payload : undefined,
       });
       console.log("Resp Data")
       console.log(resp.data)
-
       return resp.data;
     },
   },
