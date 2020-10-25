@@ -39,11 +39,7 @@ const ChartPie: React.FC<PieProps> = ({ size, data }) => {
   const canvas: React.RefObject<HTMLCanvasElement> = useRef(null);
   // const sectors: Array<[string, Sector, string]> = [];
   const [sectors,setSectors]=useState<sectors>([])
-<<<<<<< Updated upstream
-  const [tags,setTags]=useState([<div></div>,])
-=======
   const [tags,setTags]=useState<JSX.Element[]>([<div></div>,])
->>>>>>> Stashed changes
   const [showContext,setShowContext]=useState<boolean>(false)
   const [context,setContext]=useState<context>({top:0,left:0,text:""})
   function draw(
