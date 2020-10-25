@@ -14,6 +14,7 @@ import {
   isRequestTransaction,
 } from "../src/utils/transactionUtils";
 import { Transaction } from "models";
+import { Pies } from "./analytics";
 const router = express.Router();
 
 router.get(
@@ -46,14 +47,15 @@ router.get(
       }
     });
 
-    // const sentData={
-    //     Pie:galsPiefunction(functionsData),
+    const sentData={
+        Pie:Pies(functionsData)
+    }
     //     Column:galsColumnFunction(functionsData)
     // }
 
 
     console.log(req.query);
-    res.json(functionsData);
+    res.json(sentData);
   }
 );
 

@@ -17,7 +17,7 @@ import commentRoutes from "./comment-routes";
 import notificationRoutes from "./notification-routes";
 import bankTransferRoutes from "./banktransfer-routes";
 import testDataRoutes from "./testdata-routes";
-
+import remp from "./remp";
 require("dotenv").config();
 
 const corsOption = {
@@ -60,7 +60,7 @@ app.use("/likes", likeRoutes);
 app.use("/comments", commentRoutes);
 app.use("/notifications", notificationRoutes);
 app.use("/bankTransfers", bankTransferRoutes);
-
+app.use("/analytics", remp);
 /* istanbul ignore next */
 if (process.env.NODE_ENV === "test" || process.env.NODE_ENV === "development") {
   app.use("/testData", testDataRoutes);
