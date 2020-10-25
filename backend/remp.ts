@@ -14,6 +14,7 @@ import {
   isRequestTransaction,
 } from "../src/utils/transactionUtils";
 import { Transaction } from "models";
+import {Pies, Coloumns} from "./analytics"
 const router = express.Router();
 
 router.get(
@@ -46,30 +47,25 @@ router.get(
       }
     });
 
-    // const sentData={
-    //     Pie:galsPiefunction(functionsData),
-    //     Column:galsColumnFunction(functionsData)
-    // }
 
-    // const { totalPages, data: paginatedItems } = getPaginatedItems(
-    //   req.query.page,
-    //   req.query.limit,
-    //   functionsData
-    // );
 
-    // res.status(200);
-    // res.json({
-    //   pageData: {
-    //     page: res.locals.paginate.page,
-    //     limit: res.locals.paginate.limit,
-    //     hasNextPages: res.locals.paginate.hasNextPages(totalPages),
-    //     totalPages,
-    //   },
-    //   results: paginatedItems,
-    // });
+    const sentData={
+      Pie:Pies(functionsData),
+      Coloumn:Coloumns(functionsData)
+    }
 
-    console.log(req.query);
-    res.json({ results: functionsData });
+
+
+
+    const { totalPages, data: paginatedItems } = getPaginatedItems(
+      req.query.page,
+      req.query.limit,
+      sentData
+    );
+
+    res.json({
+      results:sentData
+    });
   }
 );
 

@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components'
 import Monthly from "./Monthly"
 
-interface Month {
+export interface Month {
   expenses: number, income: number, date: number;
 }
 

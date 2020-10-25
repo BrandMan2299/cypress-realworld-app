@@ -12,10 +12,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Divider } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import { analyticsTransactionsMachine } from "../machines/analyticsTransactionsMachine";
-import ChartPie from "./Charts/PieChart";
+import ChartPie, {PieData} from "./Charts/PieChart";
 import styled from 'styled-components'
 import { Transaction } from '../models/transaction'
-import ColumnChart from "./Charts/CollumnChart";
+import ColumnChart, { Month } from "./Charts/CollumnChart";
+import { result } from "lodash";
 
 const Paragraph = styled.div`
  display: flex;
@@ -35,7 +36,10 @@ const ParagraphAndChart = styled.div`
  padding:10px;
  box-sizing:border-box;
 `;
-
+ interface resultInterface {
+   Pie:PieData[]
+   Coloumn:Month[]
+ }
 
 export interface AnalyticsProps {
   filterComponent: ReactNode;
@@ -49,10 +53,35 @@ const Analytics: React.FC<AnalyticsProps> = ({
   amountRangeFilters,
 }) => {
   const [current, send, analyticsTransactionService] = useMachine(analyticsTransactionsMachine);
-  console.log(current);
+  const [render,setRender]=useState<boolean>(false)
 
-  const { results } = current.context; //results: the data u get from the backend
-  
+  const  results  = current.context.results as resultInterface|any[] //results: the data u get from the backend
+  useEffect(()=>{
+    if (!Array.isArray(results)){
+      setRender(true)
+    }
+  },[results])
+  function renderer(results:resultInterface){
+    return (
+      <>
+      {render&&
+        <Paper elevation={2}>
+          {filterComponent}
+          <ParagraphAndChart>
+            {PieParagraph()}
+            <ChartPie size={300} data={results.Pie} />
+          </ParagraphAndChart>
+          <Divider />
+          <ParagraphAndChart>
+            {PieParagraph()}
+            <ColumnChart size={300} allYear={results.Coloumn} />
+          </ParagraphAndChart>
+        </Paper>
+  }
+      </>
+    );
+  }
+  // function theResultsAreHere(results:any[]|)
   // @ts-ignore
   if (window.Cypress) {
     // @ts-ignore
@@ -140,18 +169,9 @@ const Analytics: React.FC<AnalyticsProps> = ({
   }
   return (
     <>
-      <Paper elevation={2}>
-        {filterComponent}
-        <ParagraphAndChart>
-          {PieParagraph()}
-          <ChartPie size={300} data={data} />
-        </ParagraphAndChart>
-        <Divider />
-        <ParagraphAndChart>
-          {PieParagraph()}
-          <ColumnChart size={300} allYear={mockData} />
-        </ParagraphAndChart>
-      </Paper>
+    {render&&
+      renderer(results as resultInterface)
+}
     </>
   );
 };
