@@ -108,9 +108,7 @@
   "resolutions": {
     "@babel/compat-data": "7.9.0",
     "@types/express": "4.17.2",
-    "@types/express-serve-static-core": "4.17.2",
-    "**/@typescript-eslint/eslint-plugin": "^4.1.1",
-    "**/@typescript-eslint/parser": "^4.1.1"
+    "@types/express-serve-static-core": "4.17.2"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development concurrently yarn:start:react yarn:start:api:watch",

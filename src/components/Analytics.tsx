@@ -6,7 +6,6 @@ import {
   TransactionDateRangePayload,
   TransactionAmountRangePayload,
 } from "../models";
-
 import { httpClient } from "utils/asyncUtils";
 import TransactionList from "./TransactionList";
 import { makeStyles } from "@material-ui/core/styles";
@@ -53,14 +52,11 @@ const Analytics: React.FC<AnalyticsProps> = ({
 
   const { results } = current.context; //results: the data u get from the backend
 
-
-
   // @ts-ignore
   if (window.Cypress) {
     // @ts-ignore
     window.analyticsTransactionService = analyticsTransactionService;
   }
-
 
   useEffect(() => {
     send("FETCH", { ...dateRangeFilters, ...amountRangeFilters });
@@ -94,7 +90,6 @@ const Analytics: React.FC<AnalyticsProps> = ({
           <ChartPie size={300} data={data} />
         </ParagraphAndChart>
       </Paper>
-
     </>
   );
 };

@@ -47,11 +47,6 @@ const TransactionsContainer: React.FC = () => {
           amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
         />
       </Route> */}
-
-      </Route>
-      <Route exact path="/analytics">
-   
-
       </Route>
       <Route exact path="/personal">
         <TransactionPersonalList
@@ -69,11 +64,9 @@ const TransactionsContainer: React.FC = () => {
       </Route>
       <Route exact path="/analytics">
       <Analytics 
-
         filterComponent={Filters}
         dateRangeFilters={dateRangeFilters as TransactionDateRangePayload}
         amountRangeFilters={amountRangeFilters as TransactionAmountRangePayload}
-
       />
       </Route>
     </Switch>
