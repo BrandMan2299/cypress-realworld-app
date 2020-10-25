@@ -11,7 +11,7 @@
       "phoneNumber": "625-316-9882",
       "avatar": "https://avatars.dicebear.com/api/human/t45AiwidW.svg",
       "defaultPrivacyLevel": "public",
-      "balance": 10168137,
+      "balance": 168137,
       "createdAt": "2019-08-27T23:47:05.637Z",
       "modifiedAt": "2020-05-21T11:02:22.857Z"
     },
@@ -74,7 +74,10 @@
       "balance": 75369,
       "createdAt": "2020-02-11T21:26:46.510Z",
       "modifiedAt": "2020-05-21T15:15:33.944Z"
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     }
   ],
   "contacts": [
@@ -254,7 +257,10 @@
       "isDeleted": false,
       "createdAt": "2019-09-30T14:20:07.043Z",
       "modifiedAt": "2020-05-21T22:40:28.910Z"
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     }
   ],
   "transactions": [
