@@ -74,6 +74,7 @@
       "balance": 75369,
       "createdAt": "2020-02-11T21:26:46.510Z",
       "modifiedAt": "2020-05-21T15:15:33.944Z"
+<<<<<<< HEAD
     },
     {
       "id": "okbQBt2om",
@@ -85,6 +86,12 @@
       "balance": 0,
       "createdAt": "2020-10-24T22:37:09.262Z",
       "modifiedAt": "2020-10-24T22:37:09.262Z"
+=======
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 95d98b6... f
     }
   ],
   "contacts": [
@@ -264,6 +271,7 @@
       "isDeleted": false,
       "createdAt": "2019-09-30T14:20:07.043Z",
       "modifiedAt": "2020-05-21T22:40:28.910Z"
+<<<<<<< HEAD
     },
     {
       "id": "q_-I_NDhG",
@@ -275,6 +283,12 @@
       "isDeleted": false,
       "createdAt": "2020-10-24T22:40:06.721Z",
       "modifiedAt": "2020-10-24T22:40:06.721Z"
+=======
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 95d98b6... f
     }
   ],
   "transactions": [
