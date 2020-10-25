@@ -15,6 +15,7 @@ import { analyticsTransactionsMachine } from "../machines/analyticsTransactionsM
 import ChartPie from "./Charts/PieChart";
 import styled from 'styled-components'
 import { Transaction } from '../models/transaction'
+import ColumnChart from "./Charts/CollumnChart";
 
 const Paragraph = styled.div`
  display: flex;
@@ -66,7 +67,68 @@ const Analytics: React.FC<AnalyticsProps> = ({
     send("FETCH", { page, ...dateRangeFilters, ...amountRangeFilters });
 
   const data = [{ label: 'food', number: 300 }, { label: 'fitness', number: 300 }, { label: 'sex', number: 300 }];
-
+  const mockData  = [
+    {
+     date: 0,
+     expenses: 300,
+     income: 800
+   },
+    {
+     date: 1,
+     expenses: 200,
+     income: 1200
+   },
+    {
+     date: 2,
+     expenses: 500,
+     income: 1000
+   },
+    {
+     date: 3,
+     expenses: 1300,
+     income: 800
+   },
+    {
+     date: 4,
+     expenses: 300,
+     income: 800
+   },
+    {
+     date: 5,
+     expenses: 300,
+     income: 800
+   },
+    {
+     date: 6,
+     expenses: 300,
+     income: 800
+   },
+    {
+     date: 7,
+     expenses: 300,
+     income: 1800
+   },
+    {
+     date: 8,
+     expenses: 300,
+     income: 800
+   },
+    {
+     date: 9,
+     expenses: 300,
+     income: 800
+   },
+    {
+     date: 10,
+     expenses: 300,
+     income: 800
+   },
+    {
+     date: 11,
+     expenses: 300,
+     income: 800
+   },
+   ]
   const PieParagraph = (): JSX.Element => {
     return (
       <Paragraph>
@@ -87,7 +149,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
         <Divider />
         <ParagraphAndChart>
           {PieParagraph()}
-          <ChartPie size={300} data={data} />
+          <ColumnChart size={300} allYear={mockData} />
         </ParagraphAndChart>
       </Paper>
     </>
