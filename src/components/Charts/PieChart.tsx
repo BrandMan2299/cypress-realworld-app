@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
-interface PieData {
+export interface PieData {
+
   label: string;
   number: number;
 }
@@ -36,6 +37,10 @@ interface context{
 type sectors=Array<[string, Sector, string]>
 
 const ChartPie: React.FC<PieProps> = ({ size, data }) => {
+
+  console.log({data, size});
+  debugger
+
   const canvas: React.RefObject<HTMLCanvasElement> = useRef(null);
   // const sectors: Array<[string, Sector, string]> = [];
   const [sectors,setSectors]=useState<sectors>([])
