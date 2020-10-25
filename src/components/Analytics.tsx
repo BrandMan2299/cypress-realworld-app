@@ -76,13 +76,16 @@ const Analytics: React.FC<AnalyticsProps> = ({
   return (
     <>
     <Paper elevation={2}>
-    {filterComponent}
-      <ParagraphAndChart>
-        {PieParagraph()}
-         <ChartPie size={300} data={data}/>
-      </ParagraphAndChart>
-      <Divider/>
-      <ParagraphAndChart>
+           {filterComponent}
+    </Paper>
+    <Paper elevation={2}>
+            <ParagraphAndChart>
+            {PieParagraph()}
+            <ChartPie size={300} data={data}/>
+           </ParagraphAndChart>
+   </Paper>
+   <Paper elevation={2}>
+         <ParagraphAndChart>
         {PieParagraph()}
          <ChartPie size={300} data={data}/>
       </ParagraphAndChart>
