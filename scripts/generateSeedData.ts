@@ -11,5 +11,4 @@ fs.writeFile(path.join(process.cwd(), "data", "database-seed.json"), fileData, (
     console.error(err);
     return;
   }
-  console.log("test seed generated");
 });

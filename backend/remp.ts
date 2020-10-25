@@ -1,7 +1,6 @@
 ///<reference path="types.ts" />
 
 import express from "express";
-<<<<<<< HEAD
 import { getTransactionsForUserForApi } from "./database";
 import { ensureAuthenticated, validateMiddleware } from "./helpers";
 import {
@@ -15,6 +14,7 @@ import {
   isRequestTransaction,
 } from "../src/utils/transactionUtils";
 import { Transaction } from "models";
+import {Pies, Coloumns} from "./analytics"
 const router = express.Router();
 
 router.get(
@@ -47,90 +47,17 @@ router.get(
       }
     });
 
-    // const sentData={
-    //     Pie:galsPiefunction(functionsData),
-    //     Column:galsColumnFunction(functionsData)
-    // }
 
-    // const { totalPages, data: paginatedItems } = getPaginatedItems(
-    //   req.query.page,
-    //   req.query.limit,
-    //   functionsData
-    // );
 
-    // res.status(200);
-    // res.json({
-    //   pageData: {
-    //     page: res.locals.paginate.page,
-    //     limit: res.locals.paginate.limit,
-    //     hasNextPages: res.locals.paginate.hasNextPages(totalPages),
-    //     totalPages,
-    //   },
-    //   results: paginatedItems,
-    // });
+    const sentData=[{
+      Pie:Pies(functionsData),
+      Coloumn:Coloumns(functionsData)
+    }]
 
-    console.log(req.query);
-    res.json({ results: functionsData });
+
+    res.json({results: sentData})
+
   }
 );
 
 export default router;
-=======
-import { remove, isEmpty, slice, concat } from "lodash/fp";
-import {
-    getTransactionsForUserContacts,
-    createTransaction,
-    updateTransactionById,
-    getPublicTransactionsDefaultSort,
-    getTransactionByIdForApi,
-    getTransactionsForUserForApi,
-    getPublicTransactionsByQuery,
-} from "./database";
-import { ensureAuthenticated, validateMiddleware } from "./helpers";
-import {
-    sanitizeTransactionStatus,
-    sanitizeRequestStatus,
-    isTransactionQSValidator,
-    isTransactionPayloadValidator,
-    shortIdValidation,
-    isTransactionPatchValidator,
-    isTransactionPublicQSValidator,
-} from "./validators";
-import { getPaginatedItems } from "../src/utils/transactionUtils";
-const router = express.Router();
-
-router.get(
-    "/",
-    ensureAuthenticated,
-    validateMiddleware([
-        sanitizeTransactionStatus,
-        sanitizeRequestStatus,
-        ...isTransactionQSValidator,
-    ]),
-    (req, res) => {
-        /* istanbul ignore next */
-        // const transactions = getTransactionsForUserForApi(req.user?.id!, req.query);
-
-        // const { totalPages, data: paginatedItems } = getPaginatedItems(
-        //     req.query.page,
-        //     req.query.limit,
-        //     transactions
-        // );
-
-        // res.status(200);
-        // res.json({
-        //     pageData: {
-        //         page: res.locals.paginate.page,
-        //         limit: res.locals.paginate.limit,
-        //         hasNextPages: res.locals.paginate.hasNextPages(totalPages),
-        //         totalPages,
-        //     },
-        //     results: paginatedItems,
-        // });
-        console.log(req);
-        res.json({ messege: "bob" })
-    }
-);
-
-export default router
->>>>>>> eb948ea... testing route

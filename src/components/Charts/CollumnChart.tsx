@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components'
 import Monthly from "./Monthly"
 
-interface Month {
+export interface Month {
   expenses: number, income: number, date: number;
 }
 
@@ -52,9 +52,11 @@ white-space: nowrap;
 
 
 const ColumnChart: React.FC<props> = ({allYear,size}) => {
+  console.log({allYear,size});
+  debugger
+
   const max: number= Math.max(...allYear.map((month) => {
      return Math.max(month.expenses,month.income)}))
-     console.log(allYear)
   return (
     <ColumnTable >
     {allYear.map((month) => (

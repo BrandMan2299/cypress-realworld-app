@@ -9,19 +9,15 @@ import {
 import { httpClient } from "utils/asyncUtils";
 import TransactionList from "./TransactionList";
 import { makeStyles } from "@material-ui/core/styles";
-<<<<<<< HEAD
-import { Divider } from "@material-ui/core";
-=======
+
 import {Divider} from "@material-ui/core";
->>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
+
 import Paper from "@material-ui/core/Paper";
 import { analyticsTransactionsMachine } from "../machines/analyticsTransactionsMachine";
-import ChartPie from "./Charts/PieChart";
+import ChartPie, {PieData} from "./Charts/PieChart";
 import styled from 'styled-components'
-<<<<<<< HEAD
 import { Transaction } from '../models/transaction'
-=======
->>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
+import ColumnChart, {Month} from "./Charts/CollumnChart";
 
 const Paragraph = styled.div`
  display: flex;
@@ -43,11 +39,13 @@ const ParagraphAndChart = styled.div`
 `;
 
 
+
 export interface AnalyticsProps {
   filterComponent: ReactNode;
   dateRangeFilters: TransactionDateRangePayload;
   amountRangeFilters: TransactionAmountRangePayload;
 }
+
 
 const Analytics: React.FC<AnalyticsProps> = ({
   filterComponent,
@@ -55,31 +53,31 @@ const Analytics: React.FC<AnalyticsProps> = ({
   amountRangeFilters,
 }) => {
   const [current, send, analyticsTransactionService] = useMachine(analyticsTransactionsMachine);
-<<<<<<< HEAD
-  console.log(current);
 
   const { results } = current.context; //results: the data u get from the backend
-=======
-  const { pageData, results } = current.context;
->>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
 
+  console.log({results:results});
+  
   // @ts-ignore
   if (window.Cypress) {
     // @ts-ignore
     window.analyticsTransactionService = analyticsTransactionService;
   }
 
+
   useEffect(() => {
     send("FETCH", { ...dateRangeFilters, ...amountRangeFilters });
   }, [send, dateRangeFilters, amountRangeFilters]);
+  
+
 
   const loadNextPage = (page: number) =>
     send("FETCH", { page, ...dateRangeFilters, ...amountRangeFilters });
 
-<<<<<<< HEAD
-  const data = [{ label: 'food', number: 300 }, { label: 'fitness', number: 300 }, { label: 'sex', number: 300 }];
 
-  const PieParagraph = (): JSX.Element => {
+
+
+  const PieParagraph = (data: any[]): JSX.Element => {
     return (
       <Paragraph>
         {
@@ -89,46 +87,22 @@ const Analytics: React.FC<AnalyticsProps> = ({
     )
   }
   return (
-    <>
+    <>{
+      results? results.length > 0&& 
+   
       <Paper elevation={2}>
         {filterComponent}
         <ParagraphAndChart>
-          {PieParagraph()}
-          <ChartPie size={300} data={data} />
+          {PieParagraph(results[0].Pie)}
+          <ChartPie size={300} data={results[0].Pie} />
         </ParagraphAndChart>
         <Divider />
         <ParagraphAndChart>
-          {PieParagraph()}
-          <ChartPie size={300} data={data} />
+          {PieParagraph(results[0].Pie)}
+          <ColumnChart size={300} allYear={results[0].Coloumn} />
         </ParagraphAndChart>
       </Paper>
-=======
-  const data=[{label:'food',number:300},{label:'fitness',number:300},{label:'sex',number:300}];
-  
-  const PieParagraph =():JSX.Element=>{
-      return (
-       <Paragraph>
-        { 
-            data.map(obj=><><span>You spent {obj.number} on {obj.label} </span></>)
-        }
-      </Paragraph>
-)
-    }
-  return (
-    <>
-    <Paper elevation={2}>
-    {filterComponent}
-      <ParagraphAndChart>
-        {PieParagraph()}
-         <ChartPie size={300} data={data}/>
-      </ParagraphAndChart>
-      <Divider/>
-      <ParagraphAndChart>
-        {PieParagraph()}
-         <ChartPie size={300} data={data}/>
-      </ParagraphAndChart>
-    </Paper>
->>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
+       : null}
     </>
   );
 };
