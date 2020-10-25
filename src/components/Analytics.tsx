@@ -41,16 +41,16 @@ const ParagraphAndChart = styled.div`
 
 
 export interface AnalyticsProps {
-  filterComponent: ReactNode;
-  dateRangeFilters: TransactionDateRangePayload;
-  amountRangeFilters: TransactionAmountRangePayload;
+  // filterComponent: ReactNode;
+  // dateRangeFilters: TransactionDateRangePayload;
+  // amountRangeFilters: TransactionAmountRangePayload;
 }
 
 
 const Analytics: React.FC<AnalyticsProps> = ({
-  filterComponent,
-  dateRangeFilters,
-  amountRangeFilters,
+  // filterComponent,
+  // dateRangeFilters,
+  // amountRangeFilters,
 }) => {
   const [current, send, analyticsTransactionService] = useMachine(analyticsTransactionsMachine);
 
@@ -70,9 +70,6 @@ const Analytics: React.FC<AnalyticsProps> = ({
   }, [send, dateRangeFilters, amountRangeFilters]);
   
 
-
-  const loadNextPage = (page: number) =>
-    send("FETCH", { page, ...dateRangeFilters, ...amountRangeFilters });
 
 
 
