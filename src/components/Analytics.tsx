@@ -52,7 +52,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
   console.log(current);
 
   const { results } = current.context; //results: the data u get from the backend
-
+  
   // @ts-ignore
   if (window.Cypress) {
     // @ts-ignore
