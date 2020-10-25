@@ -10,7 +10,6 @@ import { getDateQueryFields, getAmountQueryFields } from "../utils/transactionUt
 import TransactionPersonalList from "../components/TransactionPersonalList";
 import TransactionAnalyticsList from "../components/TransactionAnalyticsList";
 import TransactionPublicList from "../components/TransactionPublicList";
-import Analytics from "../components/Analytics";
 
 const TransactionsContainer: React.FC = () => {
   const [currentFilters, sendFilterEvent] = useMachine(transactionFiltersMachine);
