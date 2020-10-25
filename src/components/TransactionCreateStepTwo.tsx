@@ -7,6 +7,7 @@ import { string, object, number } from "yup";
 import { Paper, Typography, Button, Grid, Container, Avatar, Box, Select } from "@material-ui/core";
 import { User } from "../models";
 
+
 const validationSchema = object({
   amount: number().required("Please enter a valid amount"),
   description: string().required("Please enter a note"),

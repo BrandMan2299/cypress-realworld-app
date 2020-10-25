@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import React, { useEffect } from "react";
-import { httpClient } from "utils/asyncUtils";
-
-function Analystics(){
-
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-export default Analystics;
-=======
-=======
->>>>>>> Gilad
-=======
->>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
 import React, { useEffect, useState, ReactNode } from "react";
 import { useMachine } from "@xstate/react";
 import {
@@ -27,23 +6,15 @@ import {
   TransactionDateRangePayload,
   TransactionAmountRangePayload,
 } from "../models";
-<<<<<<< HEAD
-
 import { httpClient } from "utils/asyncUtils";
 import TransactionList from "./TransactionList";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import { analyticsTransactionsMachine } from "../machines/analyticsTransactionsMachine";
-import ChartPie from "./Charts/PieChart";
-=======
-import { httpClient } from "utils/asyncUtils";
-import TransactionList from "./TransactionList";
-import { makeStyles } from "@material-ui/core/styles";
-import {Divider} from "@material-ui/core";
+import { Divider } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import { analyticsTransactionsMachine } from "../machines/analyticsTransactionsMachine";
 import ChartPie from "./Charts/PieChart";
 import styled from 'styled-components'
+import { Transaction } from '../models/transaction'
 
 const Paragraph = styled.div`
  display: flex;
@@ -64,7 +35,6 @@ const ParagraphAndChart = styled.div`
  box-sizing:border-box;
 `;
 
->>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
 
 export interface AnalyticsProps {
   filterComponent: ReactNode;
@@ -78,7 +48,9 @@ const Analytics: React.FC<AnalyticsProps> = ({
   amountRangeFilters,
 }) => {
   const [current, send, analyticsTransactionService] = useMachine(analyticsTransactionsMachine);
-  const { pageData, results } = current.context;
+  console.log(current);
+
+  const { results } = current.context; //results: the data u get from the backend
 
   // @ts-ignore
   if (window.Cypress) {
@@ -93,48 +65,34 @@ const Analytics: React.FC<AnalyticsProps> = ({
   const loadNextPage = (page: number) =>
     send("FETCH", { page, ...dateRangeFilters, ...amountRangeFilters });
 
-<<<<<<< HEAD
-=======
-  const data=[{label:'food',number:300},{label:'fitness',number:300},{label:'sex',number:300}];
-  
-  const PieParagraph =():JSX.Element=>{
-      return (
-       <Paragraph>
-        { 
-            data.map(obj=><><span>You spent {obj.number} on {obj.label} </span></>)
+  const data = [{ label: 'food', number: 300 }, { label: 'fitness', number: 300 }, { label: 'sex', number: 300 }];
+
+  const PieParagraph = (): JSX.Element => {
+    return (
+      <Paragraph>
+        {
+          data.map(obj => <><span>You spent {obj.number} on {obj.label} </span></>)
         }
       </Paragraph>
-)
-    }
->>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
+    )
+  }
   return (
     <>
-    <Paper elevation={2}>
-    {filterComponent}
-<<<<<<< HEAD
-      <ChartPie size={300} data={[{label:'food',number:300},{label:'food',number:300},{label:'food',number:300}]}/>
-=======
-      <ParagraphAndChart>
-        {PieParagraph()}
-         <ChartPie size={300} data={data}/>
-      </ParagraphAndChart>
-      <Divider/>
-      <ParagraphAndChart>
-        {PieParagraph()}
-         <ChartPie size={300} data={data}/>
-      </ParagraphAndChart>
->>>>>>> f54e3df... Merge branch 'Kachlon' into Itai
-    </Paper>
+      <Paper elevation={2}>
+        {filterComponent}
+        <ParagraphAndChart>
+          {PieParagraph()}
+          <ChartPie size={300} data={data} />
+        </ParagraphAndChart>
+        <Divider />
+        <ParagraphAndChart>
+          {PieParagraph()}
+          <ChartPie size={300} data={data} />
+        </ParagraphAndChart>
+      </Paper>
     </>
   );
 };
 export default Analytics;
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 093b9d8... teamwork ;)
-=======
->>>>>>> Gilad
-=======
->>>>>>> f54e3df... Merge branch 'Kachlon' into Itai

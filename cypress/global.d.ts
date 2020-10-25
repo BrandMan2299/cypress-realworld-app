@@ -7,6 +7,7 @@ declare namespace Cypress {
   import { contactsTransactionService } from "../src/machines/contactsTransactionsMachine";
   import { personalTransactionService } from "../src/machines/personalTransactionsMachine";
   import { analyticsTransactionService } from "../src/machines/analyticsTransactionsMachine";
+
   import {
     User,
     BankAccount,
